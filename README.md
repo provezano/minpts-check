@@ -96,7 +96,9 @@ analysis code. They are skipped when those outputs are not present (`MINPTS_ORAC
 
 ## Citation
 
-Coutinho, F. P. (2026). Why HDBSCAN*'s flat clustering changes with minPts: shrinking clusters, a one-run predictor
+Software: Coutinho, F. P. (2026). minpts-check (version 0.1.0). Zenodo. https://doi.org/10.5281/zenodo.24092808
+
+Method: Coutinho, F. P. (2026). Why HDBSCAN*'s flat clustering changes with minPts: shrinking clusters, a one-run predictor
 and a certificate. Zenodo. https://doi.org/10.5281/zenodo.24039671
 
 ## Licence
