@@ -180,7 +180,7 @@ outputs of the paper's analysis code. They are skipped when those outputs are no
 
 ## Citation
 
-Software: Coutinho, F. P. (2026). minpts-check (version 0.2.0). Zenodo. https://doi.org/10.5281/zenodo.24092808
+Software: Coutinho, F. P. (2026). minpts-check (version 0.2.0). Zenodo. https://doi.org/10.5281/zenodo.24094267 (all versions: https://doi.org/10.5281/zenodo.24092807)
 (the record of version 0.1.0; Zenodo lists every version there)
 
 Method: Coutinho, F. P. (2026). Why HDBSCAN*'s flat clustering changes with minPts: shrinking clusters, a one-run predictor
