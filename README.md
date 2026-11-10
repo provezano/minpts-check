@@ -1,13 +1,16 @@
 # minpts_check
 
-Does your HDBSCAN* clustering survive a small change of `min_samples`? One call answers this for
-`sklearn.cluster.HDBSCAN` and for the `hdbscan` package. It implements the routine of Coutinho (2026):
+Does your HDBSCAN* clustering survive a small change of `min_samples`? One call checks this for
+`sklearn.cluster.HDBSCAN` and for the `hdbscan` package. It implements the checks proposed in a preprint,
+Coutinho (2026), which has not been peer reviewed:
 
 - At-risk clusters: for each selected cluster, `s_hat` counts its points that stay dense enough at the next
   `min_samples` (core distance within the cluster's birth radius). A cluster with `s_hat` below the next
   `min_cluster_size` is flagged as at risk of being lost.
-- Certificate: a proof, from the same run, that raising `min_samples` changes no label outside an explicit
-  set `U` of points.
+- Certificate: a sufficient condition, checked from the same run, under which raising `min_samples` changes no
+  label outside an explicit set `U` of points. When the condition fails, the step is only uncertified, not shown
+  to be fragile. In the preprint's studies it certified between about 8% and 36% of the steps, depending on the
+  data and on the cap on `U`.
 - Neighbour agreement (optional refits): ARI between the chosen value and its neighbours, over all points and
   over the points clustered in both outputs, plus the change in the number of clusters.
 
@@ -87,8 +90,9 @@ With the mutual reachability distance, many spanning-tree edges share their weig
 the core distance of a shared point. A graph with tied weights has several minimum spanning trees.
 scikit-learn and the `hdbscan` package condense a binary tree, so their labels can depend on which spanning
 tree they built and on the order of the rows. The definition of HDBSCAN* removes edges of equal weight
-simultaneously (Campello et al. 2015, Sec. 3.2). That gives one n-ary tree for all spanning trees, and so one
-set of labels.
+simultaneously (Campello et al. 2015, Sec. 3.2), and the outline of the algorithm in the scikit-learn User Guide
+states the same rule ("ties are removed simultaneously"). The difference lies in how the implementations condense
+the tree. Removing tied edges at once gives one n-ary tree for all spanning trees, and so one set of labels.
 
 | `ties=` | labels reported | certificate |
 |---|---|---|
@@ -164,8 +168,9 @@ rep.summary()
 ```
 
 The check refits HDBSCAN on the embedding with an exact tree, so its labels can differ slightly from the topics of
-a model fitted with the default approximate tree. In the paper, two UMAP seeds at the same `min_samples` usually gave
-different BERTopic partitions, so fix the UMAP seed before comparing values of `min_samples`.
+a model fitted with the default approximate tree. In the preprint, on the five corpora it ran, two UMAP seeds at the
+same `min_samples` usually gave different BERTopic partitions, so fix the UMAP seed before comparing values of
+`min_samples`.
 
 ## Tests
 
