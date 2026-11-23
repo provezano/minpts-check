@@ -1,0 +1,12 @@
+minpts-check: check whether an HDBSCAN* flat clustering survives a change of
+min_samples, with a one-run shrinkage predictor, a certificate, a certified
+range and tie-merged canonical labels.
+
+Copyright 2026 Felipe Provezano Coutinho
+ORCID: https://orcid.org/0000-0001-7206-5856
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+If you use this software, please cite it. The citation and the paper it
+implements are given in the Citation section of README.md.
+Archived deposit (all versions): https://doi.org/10.5281/zenodo.24092807

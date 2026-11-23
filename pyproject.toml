@@ -7,7 +7,7 @@ name = "minpts-check"
 version = "0.2.0"
 description = "Check whether an HDBSCAN* flat clustering survives a change of min_samples: one-run shrinkage predictor, certificate and certified range, tie-merged canonical labels"
 readme = "README.md"
-license = {text = "MIT"}
+license = "Apache-2.0"
 authors = [{name = "Felipe Provezano Coutinho"}]
 requires-python = ">=3.9"
 dependencies = ["numpy", "scipy", "scikit-learn>=1.3"]

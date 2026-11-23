@@ -200,4 +200,4 @@ computation of multiple MSTs for density-based methods. IEEE ICDE 2022, 951-964.
 
 ## Licence
 
-MIT, Felipe Provezano Coutinho.
+Apache-2.0, see `LICENSE`. Copyright Felipe Provezano Coutinho.
